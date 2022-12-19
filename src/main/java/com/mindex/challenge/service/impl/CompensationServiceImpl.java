@@ -50,11 +50,5 @@ public class CompensationServiceImpl implements CompensationService {
         LOG.debug("Getting compensation for employee Id [{}]", employeeId);
 
         return compensationRepository.findCompensationByEmployeeId(employeeId);
-
-////        }catch (Exception exception){
-////            throw new RuntimeException("Exception thrown: " + exception.getMessage());
-////        }
-//
-//        return compensation;
     }
 }

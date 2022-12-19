@@ -8,7 +8,6 @@ import java.util.Date;
 public class Compensation {
     private String employeeId;
     private BigDecimal salary;
-    @JsonFormat(pattern = "yyyy/MM/dd")
     private Date effectiveDate;
     public Compensation(){
 

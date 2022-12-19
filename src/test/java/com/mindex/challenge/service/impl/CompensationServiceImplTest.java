@@ -17,7 +17,6 @@ import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CompensationServiceImplTest {
@@ -45,7 +44,8 @@ public class CompensationServiceImplTest {
         testCompensation.setEmployeeId("16a596ae-edd3-4847-99fe-c4518e82c86f");
         BigDecimal bigDecimal = new BigDecimal(100000);
         testCompensation.setSalary(bigDecimal);
-        testCompensation.setEffectiveDate(new Date());
+        Date date = new Date();
+        testCompensation.setEffectiveDate(date);
 
         // Create Compensation checks
         Compensation createdCompensation =
@@ -111,5 +111,6 @@ public class CompensationServiceImplTest {
     private static void assertCompensationEquivalence(Compensation expected, Compensation actual) {
         assertEquals(expected.getEmployeeId(), actual.getEmployeeId());
         assertEquals(expected.getSalary(), actual.getSalary());
+        assertEquals(expected.getEffectiveDate(), actual.getEffectiveDate());
     }
 }

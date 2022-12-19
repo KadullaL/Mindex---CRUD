@@ -96,7 +96,7 @@ Sample Input Payload for create Compensation
 {
 	"employeeId" : "16a596ae-edd3-4847-99fe-c4518e82c86f",
 	"salary" : "100000",
-	"effectiveDate" : "2023/10/03"
+	"effectiveDate" : "2023-10-03"
 }
 ```
 
