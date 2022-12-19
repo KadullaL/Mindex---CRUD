@@ -1,11 +1,16 @@
 Coding Challenge Solution
 
-TASK 1
+### TASK 1
 
 ### Implementation
-This new endpoint accepts an employeeId and return the fully filled out ReportingStructure
-for the specified employeeId. DAO has not been defined for reporting structure as mentioned 
-in the readme that the values are computed on the fly and will not be persisted.
+ReportingStructure, has two properties: employee and numberOfReports.
+
+It has one REST API below:
+1. To read by employeeId
+   * This new endpoint accepts an employeeId and return the fully filled out ReportingStructure
+     for the specified employeeId. This would throw en error message for an invalid employeeId.
+   * I haven't added DAO for the reporting structure as it was mentioned in the readme that 
+     the values are computed on the fly and will not be persisted.
 
 ### How to Use
 The following endpoints are available to use:
@@ -30,20 +35,29 @@ The ReportingStructure has a JSON schema of:
 }
 ```
 
-TASK2
+### TASK 2
 
 ### Implementation
-A Compensation has the following fields: employee, salary, and effectiveDate.
-A compensation DAO has been created as mentioned in the readme that these should persist
-and query the Compensation from the persistence layer.
+A Compensation has the following fields: employee, salary, and effectiveDate. 
+As it was mentioned in the readme file that these should persist and to query the Compensation from the
+persistence layer, I have added a compensation DAO. After a compensation is created, it is added into the
+compensation entity which can be read later using the read REST API by employeeId.
 
 It has two new Compensation REST endpoints:
-1. To create by employeeId. This is an idempotent operation. As it wasn't mentioned in the readme file
-   if we should allow to create compensation multiple times or just once, I have made it idempotent so that compensation should
-   only be allowed to create once. In future another API could be updated to create multiple compensation if it is required
-   or additionally a new api update could be added to update an existing compensation.
+1. To create by employeeId
+   * This is an idempotent operation. As it wasn't mentioned in the readme file if we should allow to 
+   create compensation multiple times or just once, I have made it idempotent so that compensation should
+   only be allowed to create once. An error is thrown if compensation is created more than once.
+   * An error is thrown if an invalid employeeId is provided.
+   * In the future, if its required to create multiple compensation, the existing compensation CREATE REST API
+   could be updated to allow multiple compensations by adding additional filed "CompensationId" in the Compensation 
+   class.
+   * Additionally, if there is a requirement to update an existing compensation, a new REST API UPDATE could
+   be added to update an existing compensation.
    
 2. To read by employeeId
+   This REST API would take an employeeId and will return the Compensation for the provided Id.
+   If employeeId is not valid, this would return an error message to provide a valid employeeId.
 
 
 ### How to Use
@@ -77,7 +91,7 @@ The Compensation has a JSON schema of:
   }
 }
 ```
-Sample Payload for create Compensation
+Sample Input Payload for create Compensation
 ```
 {
 	"employeeId" : "16a596ae-edd3-4847-99fe-c4518e82c86f",
@@ -85,3 +99,8 @@ Sample Payload for create Compensation
 	"effectiveDate" : "2023/10/03"
 }
 ```
+
+### Test Cases
+I have added the test cases inside the test folder.
+Reporting Structure tests are written in ReportingStructureImplTest class and
+Compensation tests are written in CompensationServiceImplTest class.
