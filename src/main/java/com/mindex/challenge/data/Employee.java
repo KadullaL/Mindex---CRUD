@@ -3,6 +3,7 @@ package com.mindex.challenge.data;
 import java.util.List;
 
 public class Employee {
+    private String _id;
     private String employeeId;
     private String firstName;
     private String lastName;
@@ -11,6 +12,14 @@ public class Employee {
     private List<Employee> directReports;
 
     public Employee() {
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getEmployeeId() {
