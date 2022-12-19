@@ -83,7 +83,7 @@ The Compensation has a JSON schema of:
       "type": "string"
     },
     "salary": {
-      "type": "integer"
+      "type": "number"
     },
     "effectiveDate": {
       "type": "date"
@@ -101,6 +101,6 @@ Sample Input Payload for create Compensation
 ```
 
 ### Test Cases
-I have added the test cases inside the test folder.
-Reporting Structure tests are written in ReportingStructureImplTest class and
-Compensation tests are written in CompensationServiceImplTest class.
+I have added the test cases inside the test folder. Test cases include test for both success and failure scenarios.
+Reporting Structure tests are written in the ReportingStructureImplTest class and Compensation tests are written
+in the CompensationServiceImplTest class.

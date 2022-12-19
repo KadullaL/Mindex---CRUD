@@ -12,10 +12,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.math.BigDecimal;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -46,7 +43,8 @@ public class CompensationServiceImplTest {
     public void testCompensationCreateReadSuccess() {
         Compensation testCompensation = new Compensation();
         testCompensation.setEmployeeId("16a596ae-edd3-4847-99fe-c4518e82c86f");
-        testCompensation.setSalary(100000);
+        BigDecimal bigDecimal = new BigDecimal(100000);
+        testCompensation.setSalary(bigDecimal);
         testCompensation.setEffectiveDate(new Date());
 
         // Create Compensation checks
@@ -66,7 +64,8 @@ public class CompensationServiceImplTest {
     public void testCreateCompensationInvalidEmployeeError() {
         Compensation testCompensation = new Compensation();
         testCompensation.setEmployeeId("b7839309-3348-463b-a7e3-5de1c168beb3123");
-        testCompensation.setSalary(100000);
+        BigDecimal bigDecimal = new BigDecimal(100000);
+        testCompensation.setSalary(bigDecimal);
         testCompensation.setEffectiveDate(new Date());
 
         // Create Compensation checks for invalid employeeId
@@ -80,7 +79,8 @@ public class CompensationServiceImplTest {
     public void testCreateCompensationExistsError() {
         Compensation testCompensation = new Compensation();
         testCompensation.setEmployeeId("b7839309-3348-463b-a7e3-5de1c168beb3");
-        testCompensation.setSalary(100000);
+        BigDecimal bigDecimal = new BigDecimal(100000);
+        testCompensation.setSalary(bigDecimal);
         testCompensation.setEffectiveDate(new Date());
 
         // Create Compensation checks
@@ -99,7 +99,8 @@ public class CompensationServiceImplTest {
     public void testCompensationNotExistsReadError() {
         Compensation testCompensation = new Compensation();
         testCompensation.setEmployeeId("b7839309-3348-463b-a7e3-5de1c168beb31");
-        testCompensation.setSalary(100000);
+        BigDecimal bigDecimal = new BigDecimal(100000);
+        testCompensation.setSalary(bigDecimal);
         testCompensation.setEffectiveDate(new Date(1622433600));
 
         // Read Compensation checks for invalid employeeId

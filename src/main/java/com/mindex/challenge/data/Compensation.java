@@ -2,11 +2,12 @@ package com.mindex.challenge.data;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Compensation {
     private String employeeId;
-    private int salary;
+    private BigDecimal salary;
     @JsonFormat(pattern = "yyyy/MM/dd")
     private Date effectiveDate;
     public Compensation(){
@@ -20,11 +21,11 @@ public class Compensation {
         this.employeeId = employeeId;
     }
 
-    public int getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
 
