@@ -3,6 +3,7 @@ package com.mindex.challenge.data;
 import java.util.List;
 
 public class Employee {
+
     private String _id;
     private String employeeId;
     private String firstName;
